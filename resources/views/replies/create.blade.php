@@ -27,7 +27,7 @@
                                 {{ csrf_field() }}
 
                                 <div class="sm:col-span-2">
-                                    <label for="comment" class="inline-block text-gray-800 text-sm sm:text-base mb-2">内容</label>
+                                    <label for="comment" class="inline-block text-gray-800 text-sm sm:text-base mb-2">リプライ内容</label>
                                     <textarea name="reply" class="w-full h-250 bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3"></textarea>
                                 </div>
                                 <input name="comment_id" type="hidden" value="{{ $comment_id }}" />

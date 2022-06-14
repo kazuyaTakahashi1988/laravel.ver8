@@ -43,8 +43,11 @@
                     @endif
                 </div>
 
-                <div class="dataString mt-4 text-sm text-gray-500">作成日：{{ $post->created_at->format('Y/m/d D H:i') }}</div>
-                <div class="dataString limit text-sm text-gray-500">回答期限：{{ $limit->format('Y/m/d D H:i') }}</div>
+                <div class="dataString mt-4 text-sm text-gray-500">
+                    <a href="/posts/user/{{ $post->user->id }}" class="icon"><img class="h-10 w-10 rounded-full object-cover" src="{{ $post->user->profile_photo_url }}" alt="{{ $post->user->name }}" /></a>
+                    作成日：{{ $post->created_at->format('Y/m/d D H:i') }}<br>
+                    回答期限：{{ $limit->format('Y/m/d D H:i') }}
+                </div>
 
             </div>
             @if( $timeG == false )
@@ -81,7 +84,9 @@
                             <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">A：{{ $post->answer->comment->comment }}</div>
                         </div>
                     </div>
-                    <div class="dataString mt-4 text-sm text-gray-500">{{ $post->answer->comment->created_at->format('Y/m/d D H:i') }}</div>
+                    <div class="dataString mt-4 text-sm text-gray-500">
+                        <a href="/posts/user/{{ $post->answer->comment->user->id }}" class="icon iconB"><img class="h-10 w-10 rounded-full object-cover" src="{{ $post->answer->comment->user->profile_photo_url }}" alt="{{ $post->answer->comment->user->name }}" /></a>{{ $post->answer->comment->created_at->format('Y/m/d D H:i') }}
+                    </div>
                 </div>
             </div>
             {{-- ベストアンサー選出後---End --}}
@@ -93,7 +98,7 @@
                 <h2 class="text-l leading-tight text-lg text-gray-600 leading-7 font-semibold">ベストアンサーを選出してください！！！</h2>
                 <div class="text-sm text-gray-500">
                     @foreach($comments as $comment)
-                    <div class="mt-8 overflow-hidden shadow-xl ">
+                    <div class="overflow-hidden shadow-xl py-6">
                         <div class="gap-2">
                             <form action="/answers/create/" method="GET" enctype="multipart/form-data">
 
@@ -123,6 +128,8 @@
                                         </g>
                                     </svg>
                                     <div class="ml-4 text-l text-gray-600 leading-7 font-semibold">A：{{ $comment->comment }}</div>
+
+                                    <div class="dataString mt-4 text-sm text-gray-500"><a class="icon iconB"><img class="h-10 w-10 rounded-full object-cover" src="{{ $comment->user->profile_photo_url }}" alt="{{ $comment->user->name }}" /></a>{{ $comment->created_at->format('Y/m/d D H:i') }}</div>
                                 </div>
 
                                 <input type="hidden" name="comment_id" value="{{ $comment->id }}">
@@ -165,7 +172,7 @@
                                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">A：{{ $comment->comment }}</div>
                             </div>
                         </div>
-                        <div class="dataString mt-4 text-sm text-gray-500">{{ $comment->created_at->format('Y/m/d D H:i') }}</div>
+                        <div class="dataString mt-4 text-sm text-gray-500"><a href="/posts/user/{{ $comment->user->id }}" class="icon iconB"><img class="h-10 w-10 rounded-full object-cover" src="{{ $comment->user->profile_photo_url }}" alt="{{ $comment->user->name }}" /></a>{{ $comment->created_at->format('Y/m/d D H:i') }}</div>
                         @if (!empty($comment->reply[0]))
                         <div class="bar">&nbsp;</div>
                         <div class="replyArea">
@@ -173,7 +180,7 @@
 
                             <div class="text-gray-400 text-sm">ユーザー：<a href="/posts/user/{{ $reply->user->id }}" class="underline">{{ $reply->user->name }}</a></div>
                             <div class="mt-2 text-l text-gray-500">{{ $reply->reply }}</div>
-                            <div class="dataString mt-4 text-sm text-gray-400">{{ $reply->created_at->format('Y/m/d D H:i') }}</div>
+                            <div class="dataString mt-4 text-sm text-gray-400"><a href="/posts/user/{{ $reply->user->id }}" class="icon iconC"><img class="h-8 w-8 rounded-full object-cover" src="{{ $reply->user->profile_photo_url }}" alt="{{ $reply->user->name }}" /></a>{{ $reply->created_at->format('Y/m/d D H:i') }}</div>
                             @endforeach
                         </div>
                         @endif

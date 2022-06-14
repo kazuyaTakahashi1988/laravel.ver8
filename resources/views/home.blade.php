@@ -16,7 +16,7 @@
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-6 qList">
         <h2 class="p-6 font-semibold text-xl text-gray-800 leading-tight bg-white shadow">
-            新着 Q & A 
+            新着 Q & A
         </h2>
         <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2">
             @foreach($posts as $post)
@@ -30,8 +30,13 @@
                     </div>
 
                     <div class="ml-12">
+                        <div class="mt-2 text-sm text-gray-500">
+                            ユーザー：{{ $post->user->name }}<br>
+                            カテゴリー：{{ $post->category->category_name }}<br>
+                        </div>
                         <div class="qContext mt-2 text-sm text-gray-500">
                             {{ $post->content }}
+
                         </div>
 
                         <span>
@@ -43,6 +48,7 @@
                                         <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                     </svg>
                                 </div>
+                                <img class="h-10 w-10 rounded-full object-cover ml-auto" src="{{ $post->user->profile_photo_url }}" alt="{{ $post->user->name }}" />
                             </div>
                         </span>
                     </div>

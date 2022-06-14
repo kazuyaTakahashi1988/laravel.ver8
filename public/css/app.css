@@ -43,6 +43,9 @@ html {
   /* 3 */
   font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
+  line-break: strict;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /*
@@ -2700,7 +2703,14 @@ select {
 }
 
 .wClm .sideRight {
-  width: 440px;
+  max-width: 440px;
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .wClm .sideRight {
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 800px) {
@@ -2777,13 +2787,15 @@ select {
   opacity: 0.5 !important;
   transition: 0.4s;
 }
-.flex-items > a{
+
+.flex-items>a {
   display: block;
   width: 46px;
   height: 46px;
   position: relative;
 }
-.flex-items > a::after{
+
+.flex-items>a::after {
   content: "リプライ";
   position: absolute;
   bottom: 10px;
@@ -2798,13 +2810,15 @@ select {
   opacity: 0;
   transition: 0.2s;
 }
-.flex-items > a:hover::after{
+
+.flex-items>a:hover::after {
   bottom: 0;
   opacity: 1;
 }
-.flex-items > a svg.mt-1{
-}
-.flex-items a:hover svg.mt-1{
+
+.flex-items>a svg.mt-1 {}
+
+.flex-items a:hover svg.mt-1 {
   opacity: 1 !important;
 }
 
@@ -2827,6 +2841,30 @@ body {
 .dataString {
   text-align: right;
   display: block;
+  position: relative;
+}
+
+.dataString a.icon {
+  position: absolute;
+  top: 50%;
+  right: 233px;
+  transform: translateY(-50%);
+  height: 40px;
+  display: inline-block;
+  margin: auto;
+}
+
+.dataString a.icon.iconB {
+  right: 155px;
+}
+
+.dataString a.icon.iconC {
+  right: 155px;
+  height: 32px;
+}
+
+.ml-auto {
+  margin-left: auto;
 }
 
 .shadow-xl {
@@ -2834,16 +2872,19 @@ body {
   --tw-shadow-colored: 0 20px 25px -30px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.replyArea{
+
+.replyArea {
   padding-left: 48px;
   position: relative;
   margin-top: 20px;
 }
-.posiR{
+
+.posiR {
   position: relative;
   overflow: hidden;
 }
-.bar{
+
+.bar {
   position: absolute;
   top: 100px;
   left: 33px;
