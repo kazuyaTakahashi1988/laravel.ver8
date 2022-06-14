@@ -24,16 +24,16 @@ class ReplyController extends Controller
     public function store(ReplyRequest $request)
     {
 
-        $post = Post::findOrFail($request->post_id);
-        $now = new Carbon();
-        $created =  new Carbon($post->created_at);
         $reply = new Reply;
         $reply->reply = $request->reply;
         $reply->comment_id = $request->comment_id;
         $reply->user_id = \Auth::user()->id;
         $reply->save();
-        return redirect('/posts/' . $post->id);
+        return redirect('/posts/' . $request->post_id);
 
+        // $post = Post::findOrFail($request->post_id);
+        // $now = new Carbon();
+        // $created =  new Carbon($post->created_at);
         // $limit =  $created->addMinutes(5);
         // $timeG = $now->gte($limit);
         // if (!$timeG) {
