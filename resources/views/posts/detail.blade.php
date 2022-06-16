@@ -45,8 +45,8 @@
 
                 <div class="dataString mt-4 text-sm text-gray-500">
                     <a href="/posts/user/{{ $post->user->id }}" class="icon"><img class="h-10 w-10 rounded-full object-cover" src="{{ $post->user->profile_photo_url }}" alt="{{ $post->user->name }}" /></a>
-                    作成日：{{ $post->created_at->format('Y/m/d D H:i') }}<br>
-                    回答期限：{{ $limit->format('Y/m/d D H:i') }}
+                    <b>作成日：{{ $post->created_at->format('Y/m/d D H:i') }}</b><br>
+                    <b class="bg">回答期限：{{ $limit->format('Y/m/d D H:i') }}</b>
                 </div>
 
             </div>
