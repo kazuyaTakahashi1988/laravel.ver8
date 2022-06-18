@@ -1,4 +1,12 @@
 <x-app-layout>
+    <x-slot name="meta">
+        <meta name="description" content='ベストアンサー選出'>
+        <meta name="keywords" content="">
+        <title>ベストアンサー選出 | {{ config('app.name', 'welcome to Q & A site!') }}</title>
+
+        <meta name="robots" content="noindex , nofollow">
+    </x-slot>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             【 こちらの回答をベストアンサーに選出します。よろしいでしょうか？ 】

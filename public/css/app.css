@@ -2904,7 +2904,7 @@ body {
 }
 .postContents img{
   max-width: 100%;
-  height: auto;
+  height: auto!important;
 }
 #cke_1_contents{
   height: 350px!important;

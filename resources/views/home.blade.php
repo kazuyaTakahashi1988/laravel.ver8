@@ -1,4 +1,20 @@
 <x-app-layout>
+    <x-slot name="meta">
+        <meta name="description" content='ホーム'>
+        <meta name="keywords" content="">
+        <title>ホーム | {{ config('app.name', 'welcome to Q & A site!') }}</title>
+
+        <?php /* OGP meta */ ?>
+        <meta property="og:site_name" content="{{ config('app.name', 'welcome to Q & A site!') }}">
+        <meta property="og:url" content="<?php echo $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
+        <meta property="og:title" content="ホーム">
+        <meta property="og:description" content='ホーム'>
+        <meta property="og:image" content="XXXXXXXX">
+        <meta property="og:locale" content="ja_JP">
+        <meta property="fb:admins" content="xxxxxxxxx">
+        <meta property="og:type" content="website">
+    </x-slot>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <!-- {{ __('Top') }} -->

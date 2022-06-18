@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->bigInteger('category_id')->unsigned()->index();
 
             $table->string('title')->nullable();
+            $table->string('image')->nullable();
             $table->text('content')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

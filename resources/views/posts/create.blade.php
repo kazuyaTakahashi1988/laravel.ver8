@@ -1,4 +1,12 @@
 <x-app-layout>
+    <x-slot name="meta">
+        <meta name="description" content='質問投稿'>
+        <meta name="keywords" content="">
+        <title>質問投稿 | {{ config('app.name', 'welcome to Q & A site!') }}</title>
+
+        <meta name="robots" content="noindex , nofollow">
+    </x-slot>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             質問を投稿してください。
@@ -68,7 +76,9 @@
         </div>
     </div>
 
-
+    <?php /* --------------------------------------------------
+        ▽ 画像のドラッグ＆ドロップ処理 ▽
+    ----------------------------------------------------------- */ ?>
     <script>
         var fileArea = document.getElementById('drag-drop-area');
         var fileInput = document.getElementById('fileInput');
@@ -91,8 +101,9 @@
         });
     </script>
 
-
-    <!-- CKeditor 読み込み -->
+    <?php /* --------------------------------------------------
+        ▽ CKeditor 読み込み ▽
+    ----------------------------------------------------------- */ ?>
     <script src="{{ asset('ckeditor/ckeditor.js')}}"></script>
     <script>
         CKEDITOR.replace('ckeditor', {

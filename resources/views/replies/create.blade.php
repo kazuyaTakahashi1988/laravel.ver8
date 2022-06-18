@@ -1,7 +1,15 @@
 <x-app-layout>
+    <x-slot name="meta">
+        <meta name="description" content='リプライ投稿'>
+        <meta name="keywords" content="">
+        <title>リプライ投稿 | {{ config('app.name', 'welcome to Q & A site!') }}</title>
+
+        <meta name="robots" content="noindex , nofollow">
+    </x-slot>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            リプライ投稿 
+            リプライ投稿
         </h2>
     </x-slot>
 

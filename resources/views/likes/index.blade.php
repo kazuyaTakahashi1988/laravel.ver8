@@ -1,10 +1,25 @@
 <x-app-layout>
+    <x-slot name="meta">
+        <meta name="description" content='お気に入り一覧'>
+        <meta name="keywords" content="">
+        <title>お気に入り一覧 | {{ config('app.name', 'welcome to Q & A site!') }}</title>
+
+        <?php /* OGP meta */ ?>
+        <meta property="og:site_name" content="{{ config('app.name', 'welcome to Q & A site!') }}">
+        <meta property="og:url" content="<?php echo $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
+        <meta property="og:title" content="お気に入り一覧">
+        <meta property="og:description" content='お気に入り一覧'>
+        <meta property="og:image" content="XXXXXXXX">
+        <meta property="og:locale" content="ja_JP">
+        <meta property="fb:admins" content="xxxxxxxxx">
+        <meta property="og:type" content="website">
+    </x-slot>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             @if(!isset($likes[0])) お気に入りがありません @else お気に入り一覧 @endif
         </h2>
     </x-slot>
-    
+
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12 qList">
         <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2">
             @foreach($likes as $like)
