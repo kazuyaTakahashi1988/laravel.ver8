@@ -10,6 +10,10 @@ use App\Models\Category;
 use App\Models\User;
 use Carbon\Carbon;
 
+/* 画像保存処理は下記のコマンド必要 */
+// php artisan storage:link でファイル格納場所を作っておく
+// composer require intervention/image でリサイズ用モジュール追加
+
 class PostController extends Controller
 {
     /* ------------------------------------ 
@@ -74,11 +78,23 @@ class PostController extends Controller
         $post->category_id = $request->category_id;
         $post->content = $request->content;
         $post->user_id = \Auth::user()->id;
-        /* ▽ 画像が正常にアップされてる際の処理 ▽ */
+
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $filename = $request->file('image')->store('public/image');
-            $post->image = basename($filename);
-            // php artisan storage:link でファイル格納場所を作っておく
+            /* ---------------------------
+                ▽ 画像アップ時の処理 ▽
+            --------------------------- */
+            $filePath = storage_path('app/public/image/'); // ストレージフォルダ取得
+            $filename = basename($request->file('image')) . '.jpg'; // ファイルネーム取得
+            /* ▽ リサイズ・エンコード・圧縮処理 ▽ */
+            $resized_image = \Image::make($request->file('image'))->resize(
+                800,
+                null,
+                function ($constraint) {
+                    $constraint->aspectRatio(); // 縦横比を保持
+                    $constraint->upsize(); // 小さい画像まま
+                }
+            )->encode('jpg')->save($filePath . $filename, 70); // 圧縮比率70
+            $post->image = $filename;
         } else {
             $post->image = false;
         }
