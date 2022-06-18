@@ -29,6 +29,17 @@
                                     <input name="title" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" />
                                 </div>
 
+                                <div>
+                                    <label for="title" class="inline-block text-gray-800 text-sm sm:text-base">サムネイル画像</label>
+                                    <div id="drag-drop-area" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2">
+                                        <div class="drag-drop-inside">
+                                            <p class="drag-drop-info">ここにファイルをドロップ</p>
+                                            <p>または</p>
+                                            <p class="drag-drop-buttons"><input id="fileInput" type="file" value="ファイルを選択" name="image"></p>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="category_id" class="inline-block text-gray-800 text-sm sm:text-base mb-2">カテゴリー</label>
                                     <select id="exampleFormControlSelect1" name="category_id" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2">
@@ -41,12 +52,7 @@
 
                                 <div class="sm:col-span-2">
                                     <label for="content" class="inline-block text-gray-800 text-sm sm:text-base mb-2">内容</label>
-                                    <textarea name="content" class="content w-full h-250 bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-3"></textarea>
-                                </div>
-
-                                <div class="sm:col-span-2">
-                                    <label for="image" class="inline-block text-gray-800 text-sm sm:text-base mb-2">サムネイル画像</label><br>
-                                    <input type="file" name="image" class="bg-red-500" />
+                                    <textarea name="content" id="ckeditor" class="content w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-3"></textarea>
                                 </div>
 
                                 <div class="m-3 mt-4">
@@ -62,4 +68,63 @@
         </div>
     </div>
 
+
+    <script>
+        var fileArea = document.getElementById('drag-drop-area');
+        var fileInput = document.getElementById('fileInput');
+
+
+        fileArea.addEventListener('dragover', function(evt) {
+            evt.preventDefault();
+            fileArea.classList.add('dragover');
+        });
+
+        fileArea.addEventListener('dragleave', function(evt) {
+            evt.preventDefault();
+            fileArea.classList.remove('dragover');
+        });
+        fileArea.addEventListener('drop', function(evt) {
+            evt.preventDefault();
+            fileArea.classList.remove('dragenter');
+            var files = evt.dataTransfer.files;
+            fileInput.files = files;
+        });
+    </script>
+
+
+    <!-- CKeditor 読み込み -->
+    <script src="{{ asset('ckeditor/ckeditor.js')}}"></script>
+    <script>
+        CKEDITOR.replace('ckeditor', {
+            filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token() ]) }}",
+            filebrowserUploadMethod: 'form',
+            // スペルチェック機能OFF
+            scayt_autoStartup: false,
+            // Enterを押した際に改行タグを挿入
+            enterMode: CKEDITOR.ENTER_BR,
+            // Shift+Enterを押した際に段落タグを挿入
+            shiftEnterMode: CKEDITOR.ENTER_P,
+            // idやclassを指定可能にする
+            allowedContent: true,
+            // preコード挿入時
+            format_pre: {
+                element: "pre",
+                attributes: {
+                    class: "code",
+                },
+            },
+            // タグのパンくずリストを削除
+            removePlugins: "elementspath",
+
+            // webからコピペした際でもプレーンテキストを貼り付けるようにする
+            forcePasteAsPlainText: true,
+
+            // 自動で空白を挿入しないようにする
+            fillEmptyBlocks: false,
+
+            // タブの入力を無効にする
+            tabSpaces: 0,
+
+        });
+    </script>
 </x-app-layout>

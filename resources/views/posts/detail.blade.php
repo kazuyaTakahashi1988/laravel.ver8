@@ -33,8 +33,8 @@
                                 </div>
                                 @endauth
                             </div>
-                            <div class="mt-4 text-l text-gray-500">
-                                {{ $post->content }}
+                            <div class="mt-8 text-l text-gray-500 postContents">
+                                {!! $post->content !!}
                             </div>
                         </div>
                     </div>

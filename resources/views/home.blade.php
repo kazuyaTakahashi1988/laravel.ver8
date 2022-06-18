@@ -35,7 +35,7 @@
                             カテゴリー：{{ $post->category->category_name }}<br>
                         </div>
                         <div class="qContext mt-2 text-sm text-gray-500">
-                            {{ $post->content }}
+                            {{ strip_tags($post->content) }}
 
                         </div>
 

@@ -2902,3 +2902,25 @@ body {
   height: calc(100% - 140px);
   background-color: #ddd;
 }
+.postContents img{
+  max-width: 100%;
+  height: auto;
+}
+#cke_1_contents{
+  height: 350px!important;
+}
+
+#drag-drop-area{
+  width: 100%;
+  max-width: 400px;
+  padding: 5px;
+  text-align: center;
+}
+.drag-drop-inside{
+  border-radius: 10px;
+  border: 2px dashed #ccc;
+  padding: 20px;
+  font-size: 14px;
+  line-height: 30px;
+
+}

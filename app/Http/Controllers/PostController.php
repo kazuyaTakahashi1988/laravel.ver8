@@ -14,6 +14,9 @@ use Carbon\Carbon;
 // php artisan storage:link でファイル格納場所を作っておく
 // composer require intervention/image でリサイズ用モジュール追加
 
+/* ckeditor使用は下記のコマンド必要 */
+// composer require ckeditor/ckeditor 
+
 class PostController extends Controller
 {
     /* ------------------------------------ 
@@ -85,6 +88,7 @@ class PostController extends Controller
             --------------------------- */
             $filePath = storage_path('app/public/image/'); // ストレージフォルダ取得
             $filename = basename($request->file('image')) . '.jpg'; // ファイルネーム取得
+
             /* ▽ リサイズ・エンコード・圧縮処理 ▽ */
             $resized_image = \Image::make($request->file('image'))->resize(
                 800,
@@ -133,6 +137,41 @@ class PostController extends Controller
             'limit' => $limit,
             'timeG' => $timeG,
         ]);
+    }
+
+    /* ------------------------------------ 
+        ▽ Ckeditorの画像をアップロード ▽
+    ------------------------------------ */
+    public function ckeditor(Request $request)
+    {
+        if ($request->hasFile('upload')) {
+
+            /* ---------------------------
+                ▽ 画像アップ時の処理 ▽
+            --------------------------- */
+            $filePath = storage_path('app/public/uploads/'); // ストレージフォルダ取得
+            $filename = basename($request->file('upload')) . '.jpg'; // ファイルネーム取得
+            
+            /* ▽ リサイズ・エンコード・圧縮処理 ▽ */
+            $resized_image = \Image::make($request->file('upload'))->resize(
+                800,
+                null,
+                function ($constraint) {
+                    $constraint->aspectRatio(); // 縦横比を保持
+                    $constraint->upsize(); // 小さい画像まま
+                }
+            )->encode('jpg')->save($filePath . $filename, 70); // 圧縮比率70
+
+            /* ▽ ckeditor.jsに返却するデータを生成する ▽ */
+            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+            $url = asset('storage/uploads/' . $filename);
+            // $msg = 'アップロードが完了しました';
+            $res = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '')</script>";
+
+            /* ▽ HTMLを返す ▽ */
+            @header('Content-type: text/html; charset=utf-8');
+            echo $res;
+        }
     }
     /**
      * Show the form for editing the specified resource.

@@ -14,6 +14,7 @@ use App\Http\Controllers\AnswerController;
 /* ----------------------------------------
     ▽ ▽ ルートページ Routes ▽ ▽
 ----------------------------------------- */
+
 Route::get('/', [PostController::class, 'home'])->name('home');
 
 /* ----------------------------------------
@@ -30,7 +31,9 @@ Route::prefix('/posts')->group(function () {
     Route::get('/create', [PostController::class, 'create'])->name('posts.create')->middleware('auth');
     Route::post('/store', [PostController::class, 'store'])->name('posts.store')->middleware('auth');
     /* ▽ 記事詳細 ▽ */
-    Route::get('/{id}', [PostController::class, 'detail'])->name('posts.detail'); 
+    Route::get('/{id}', [PostController::class, 'detail'])->name('posts.detail');
+    /* ▽ ckeditor img UP ▽ */
+    Route::post('ckeditor/upload', [PostController::class, 'ckeditor'])->name('ckeditor.upload');
     // Route::get('/update/{content_id}', [PostController::class, 'update'])->name('contents.update');
     // Route::get('/delete/{content_id}', [PostController::class, 'delete'])->name('contents.delete');
 });
@@ -55,6 +58,7 @@ Route::prefix('/answers')->group(function () {
     Route::get('/create', [AnswerController::class, 'create'])->name('answers.create')->middleware('auth');
     Route::post('/store', [AnswerController::class, 'store'])->name('answers.store')->middleware('auth');
 });
+
 /* ----------------------------------------
     ▽ ▽ auth:sanctum Routes ▽ ▽
 ----------------------------------------- */
@@ -74,10 +78,12 @@ Route::middleware([
 |  ▽ ▽ ▽ API Routes ▽ ▽ ▽
 |--------------------------------------------------------------------------
 */
+
 use App\Http\Controllers\LikeController;
 /* ----------------------------------------
     ▽ ▽ お気に入り Routes ▽ ▽
 ----------------------------------------- */
+
 Route::get('/posts/like/{id}/', [LikeController::class, 'like']);
 Route::get('/posts/unlike/{id}', [LikeController::class, 'unlike']);
-Route::get('/likes', [LikeController::class, 'index'])->name('likes.index')->middleware('auth'); 
+Route::get('/likes', [LikeController::class, 'index'])->name('likes.index')->middleware('auth');
