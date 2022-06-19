@@ -2,7 +2,7 @@
     <x-slot name="meta">
         <meta name="description" content='ホーム'>
         <meta name="keywords" content="">
-        <title>ホーム | {{ config('app.name', 'welcome to Q & A site!') }}</title>
+        <title>{{ config('app.name', 'welcome to Q & A site!') }}</title>
 
         <?php /* OGP meta */ ?>
         <meta property="og:site_name" content="{{ config('app.name', 'welcome to Q & A site!') }}">

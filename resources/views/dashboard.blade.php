@@ -17,7 +17,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard  　　開発中...') }}
+            {{ __('Dashboard  　　- 開発中 -') }}
         </h2>
     </x-slot>
 

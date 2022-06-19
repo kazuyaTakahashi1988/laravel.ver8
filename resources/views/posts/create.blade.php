@@ -9,7 +9,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            質問を投稿してください。
+            質問を投稿できます。
         </h2>
     </x-slot>
 
@@ -33,12 +33,12 @@
                             <form class="max-w-screen-md grid sm:grid-cols-2 gap-4 mx-auto" action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div>
-                                    <label for="title" class="inline-block text-gray-800 text-sm sm:text-base mb-2">タイトル</label>
+                                    <label for="title" class="inline-block text-gray-800 text-sm sm:text-base mb-2"><b>タイトル</b></label>
                                     <input name="title" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" />
                                 </div>
 
                                 <div>
-                                    <label for="title" class="inline-block text-gray-800 text-sm sm:text-base">サムネイル画像</label>
+                                    <label for="title" class="inline-block text-gray-800 text-sm sm:text-base"><b>サムネイル画像</b></label>
                                     <div id="drag-drop-area" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2">
                                         <div class="drag-drop-inside">
                                             <p class="drag-drop-info">ここにファイルをドロップ</p>
@@ -49,7 +49,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="category_id" class="inline-block text-gray-800 text-sm sm:text-base mb-2">カテゴリー</label>
+                                    <label for="category_id" class="inline-block text-gray-800 text-sm sm:text-base mb-2"><b>カテゴリー</b></label>
                                     <select id="exampleFormControlSelect1" name="category_id" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2">
                                         <option selected="">---</option>
                                         @foreach ($categories as $category)
@@ -59,7 +59,7 @@
                                 </div>
 
                                 <div class="sm:col-span-2">
-                                    <label for="content" class="inline-block text-gray-800 text-sm sm:text-base mb-2">内容</label>
+                                    <label for="content" class="inline-block text-gray-800 text-sm sm:text-base mb-2"><b>内容</b></label>
                                     <textarea name="content" id="ckeditor" class="content w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-3"></textarea>
                                 </div>
 

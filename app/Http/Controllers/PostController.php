@@ -87,10 +87,10 @@ class PostController extends Controller
                 ▽ 画像アップ時の処理 ▽
             --------------------------- */
             $filePath = storage_path('app/public/image/'); // ストレージフォルダ取得
-            $filename = basename($request->file('image')) . '.jpg'; // ファイルネーム取得
+            $filename = date('Ymd_His') . basename($request->file('image')) . '.jpg'; // ファイルネーム取得
 
             /* ▽ リサイズ・エンコード・圧縮処理 ▽ */
-            $resized_image = \Image::make($request->file('image'))->resize(
+            \Image::make($request->file('image'))->resize(
                 800,
                 null,
                 function ($constraint) {
@@ -140,27 +140,27 @@ class PostController extends Controller
     }
 
     /* ------------------------------------ 
-        ▽ Ckeditorの画像をアップロード ▽
+        ▽ Ckeditorの画像アップロード ▽
     ------------------------------------ */
     public function ckeditor(Request $request)
     {
-        if ($request->hasFile('upload')) {
+        if ($request->hasFile('upload')  && $request->file('upload')->isValid()) {
 
             /* ---------------------------
                 ▽ 画像アップ時の処理 ▽
             --------------------------- */
             $filePath = storage_path('app/public/uploads/'); // ストレージフォルダ取得
-            $filename = basename($request->file('upload')) . '.jpg'; // ファイルネーム取得
-            
+            $filename = date('Ymd_His') . basename($request->file('upload')) . '.jpg'; // ファイルネーム取得
+
             /* ▽ リサイズ・エンコード・圧縮処理 ▽ */
-            $resized_image = \Image::make($request->file('upload'))->resize(
+            \Image::make($request->file('upload'))->resize(
                 800,
                 null,
                 function ($constraint) {
                     $constraint->aspectRatio(); // 縦横比を保持
                     $constraint->upsize(); // 小さい画像まま
                 }
-            )->encode('jpg')->save($filePath . $filename, 70); // 圧縮比率70
+            )->encode('jpg')->save($filePath . $filename, 70);
 
             /* ▽ ckeditor.jsに返却するデータを生成する ▽ */
             $CKEditorFuncNum = $request->input('CKEditorFuncNum');

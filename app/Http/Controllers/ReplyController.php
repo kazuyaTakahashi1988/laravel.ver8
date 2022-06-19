@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ReplyRequest; /* バリデーション */
 use App\Models\Reply;
-use App\Models\Post;
-use Carbon\Carbon;
+// use App\Models\Post;
+// use Carbon\Carbon;
 
 class ReplyController extends Controller
 {
