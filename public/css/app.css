@@ -2616,6 +2616,14 @@ select {
   overflow: hidden;
   height: 40px;
 }
+.q-title{
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 29px;
+  max-width: calc(100% - 45px);
+}
 
 .border-white {}
 
