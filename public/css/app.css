@@ -2932,3 +2932,20 @@ body {
   line-height: 30px;
 
 }
+
+h1{
+  font-size: 2rem!important;
+  line-height: 2rem;
+}
+h2{
+  font-size: 1.8rem!important;
+  line-height: 1.8rem;
+}
+h3{
+  font-size: 1.6rem!important;
+  line-height: 1.6rem;
+}
+h4{
+  font-size: 1.4rem!important;
+  line-height: 2rem;
+}
