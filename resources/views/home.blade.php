@@ -13,6 +13,7 @@
         <meta property="og:locale" content="ja_JP">
         <meta property="fb:admins" content="xxxxxxxxx">
         <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image" />
     </x-slot>
 
     <x-slot name="header">
