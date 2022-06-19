@@ -34,7 +34,7 @@
                                 {{ csrf_field() }}
                                 <div>
                                     <label for="title" class="inline-block text-gray-800 text-sm sm:text-base mb-2"><b>タイトル</b></label>
-                                    <input name="title" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" />
+                                    <input name="title" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" value="{{ old('title' , '') }}" />
                                 </div>
 
                                 <div>
@@ -53,14 +53,15 @@
                                     <select id="exampleFormControlSelect1" name="category_id" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2">
                                         <option selected="">---</option>
                                         @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                        <option value="{{ $category->id }}"
+                                        @if( old('category_id') == $category->id ) selected @endif>{{ $category->category_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
 
                                 <div class="sm:col-span-2">
                                     <label for="content" class="inline-block text-gray-800 text-sm sm:text-base mb-2"><b>内容</b></label>
-                                    <textarea name="content" id="ckeditor" class="content w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-3"></textarea>
+                                    <textarea name="content" id="ckeditor" class="content w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-3">{{ old('content' , '') }}</textarea>
                                 </div>
 
                                 <div class="m-3 mt-4">
