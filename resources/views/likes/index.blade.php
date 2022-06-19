@@ -9,10 +9,10 @@
         <meta property="og:url" content="<?php echo $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
         <meta property="og:title" content="お気に入り一覧">
         <meta property="og:description" content='お気に入り一覧'>
-        <meta property="og:image" content="XXXXXXXX">
+        <meta property="og:image" content="<?php echo $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST']; ?>/ogp.jpg">
         <meta property="og:locale" content="ja_JP">
         <meta property="fb:admins" content="xxxxxxxxx">
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     </x-slot>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">

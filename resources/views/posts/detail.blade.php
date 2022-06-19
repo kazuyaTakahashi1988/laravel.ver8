@@ -10,12 +10,17 @@
         <meta property="og:url" content="<?php echo $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
         <meta property="og:title" content="{{ $post->title }}">
         <meta property="og:description" content='{{ mb_substr(str_replace(array("\r\n", "\r", "\n"), "", strip_tags($post->content)), 0, 130); }}'>
+        @if(asset('storage/image/'.$post->image))
         <meta property="og:image" content="{{ asset('storage/image/'.$post->image) }}">
+        @else
+        <meta property="og:image" content="<?php echo $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST']; ?>/ogp.jpg">
+        @endif
+        <meta property="og:image" content="">
         <meta property="og:locale" content="ja_JP">
         <meta property="fb:admins" content="xxxxxxxxx">
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     </x-slot>
-    
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             質問詳細
