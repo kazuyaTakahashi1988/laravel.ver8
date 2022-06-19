@@ -11,8 +11,8 @@
     <title>{{ config('app.name', 'welcome to Q & A site!') }}</title>
     @endif
     <?php /* favicon */ ?>
-    <link rel="icon" href="/assets/images/common/favicon.ico" type="image/vnd.microsoft.icon">
-    <link rel="apple-touch-icon" href="/assets/images/common/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
