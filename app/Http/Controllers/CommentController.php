@@ -26,7 +26,8 @@ class CommentController extends Controller
         $post = Post::findOrFail($request->post_id);
         $now = new Carbon();
         $created =  new Carbon($post->created_at);
-        $limit =  $created->addMinutes(5);
+        // $limit =  $created->addMinutes(5);
+        $limit =  $created->addDays(7);
         $timeG = $now->gte($limit);
         if (!$timeG) {
             $comment = new Comment;

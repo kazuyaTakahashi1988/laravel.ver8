@@ -124,7 +124,8 @@ class PostController extends Controller
 
         $now = new Carbon();
         $created =  new Carbon($post->created_at);
-        $limit =  $created->addMinutes(5);
+        // $limit =  $created->addMinutes(5);
+        $limit =  $created->addDays(7);
         $timeG = $now->gte($limit);
 
         return view('posts.detail', [
