@@ -3,12 +3,12 @@
     <x-slot name="meta">
         <meta name="description" content='{{ mb_substr(str_replace(array("\r\n", "\r", "\n"), "", strip_tags($post->content)), 0, 130); }}'>
         <meta name="keywords" content="">
-        <title>{{ $post->title }} | {{ config('app.name', 'welcome to Q & A site!') }}</title>
+        <title>{{ $post->title }} | {{ config('app.name', 'Q & A site - ナゼナゼの実 -') }}</title>
 
         <?php /* OGP meta */ ?>
-        <meta property="og:site_name" content="{{ config('app.name', 'welcome to Q & A site!') }}">
+        <meta property="og:site_name" content="{{ config('app.name', 'Q & A site - ナゼナゼの実 -') }}">
         <meta property="og:url" content="<?php echo $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
-        <meta property="og:title" content="{{ $post->title }}">
+        <meta property="og:title" content="{{ $post->title }} | {{ config('app.name', 'Q & A site - ナゼナゼの実 -') }}">
         <meta property="og:description" content='{{ mb_substr(str_replace(array("\r\n", "\r", "\n"), "", strip_tags($post->content)), 0, 130); }}'>
         @if(asset('storage/image/'.$post->image))
         <meta property="og:image" content="{{ asset('storage/image/'.$post->image) }}">

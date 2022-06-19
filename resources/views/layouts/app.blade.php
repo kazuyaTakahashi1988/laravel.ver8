@@ -8,7 +8,7 @@
     @if (isset($meta))
     {{ $meta }}
     @else
-    <title>{{ config('app.name', 'welcome to Q & A site!') }}</title>
+    <title>{{ config('app.name', 'Q & A site - ナゼナゼの実 -') }}</title>
     @endif
     <?php /* favicon */ ?>
     <link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon">

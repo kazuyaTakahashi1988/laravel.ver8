@@ -2,12 +2,12 @@
     <x-slot name="meta">
         <meta name="description" content='お気に入り一覧'>
         <meta name="keywords" content="">
-        <title>お気に入り一覧 | {{ config('app.name', 'welcome to Q & A site!') }}</title>
+        <title>お気に入り一覧 | {{ config('app.name', 'Q & A site - ナゼナゼの実 -') }}</title>
 
         <?php /* OGP meta */ ?>
-        <meta property="og:site_name" content="{{ config('app.name', 'welcome to Q & A site!') }}">
+        <meta property="og:site_name" content="{{ config('app.name', 'Q & A site - ナゼナゼの実 -') }}">
         <meta property="og:url" content="<?php echo $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
-        <meta property="og:title" content="お気に入り一覧">
+        <meta property="og:title" content="お気に入り一覧 | {{ config('app.name', 'Q & A site - ナゼナゼの実 -') }}">
         <meta property="og:description" content='「Q & A site - ナゼナゼの実 -」 は質問を投稿、及び回答することができるC to C サービスです。質問者の投稿に気軽にコメントとリプライを送ることができ、名前とメールアドレスの登録だけで簡単に始められます。'>
         <meta property="og:image" content="<?php echo $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST']; ?>/ogp.jpg">
         <meta property="og:locale" content="ja_JP">

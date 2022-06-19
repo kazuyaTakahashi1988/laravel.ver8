@@ -2,7 +2,7 @@
     <x-slot name="meta">
         <meta name="description" content='質問投稿'>
         <meta name="keywords" content="">
-        <title>質問投稿 | {{ config('app.name', 'welcome to Q & A site!') }}</title>
+        <title>質問投稿 | {{ config('app.name', 'Q & A site - ナゼナゼの実 -') }}</title>
 
         <meta name="robots" content="noindex , nofollow">
     </x-slot>

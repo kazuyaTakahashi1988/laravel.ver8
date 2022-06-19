@@ -2,7 +2,7 @@
     <x-slot name="meta">
         <meta name="description" content='ベストアンサー選出'>
         <meta name="keywords" content="">
-        <title>ベストアンサー選出 | {{ config('app.name', 'welcome to Q & A site!') }}</title>
+        <title>ベストアンサー選出 | {{ config('app.name', 'Q & A site - ナゼナゼの実 -') }}</title>
 
         <meta name="robots" content="noindex , nofollow">
     </x-slot>
