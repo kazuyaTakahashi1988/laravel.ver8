@@ -28,7 +28,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             // dd($input['photo']);
             // $user->updateProfilePhoto($input['photo']);
             $filePath = storage_path('app/public/profile-photos/'); // ストレージフォルダ取得
-            $filename = basename($input['photo']).'.jpg'; // ファイルネーム取得
+            $filename = date('Ymd_His') . basename($input['photo']) . '.jpg'; // ファイルネーム取得
             /* ▽ リサイズ・エンコード・圧縮処理 ▽ */
             \Image::make($input['photo'])->resize(
                 150,
