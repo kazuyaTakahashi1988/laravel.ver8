@@ -1,15 +1,15 @@
 <x-jet-action-section>
     <x-slot name="title">
-        {{ __('Browser Sessions') }}
+        {{ __('ブラウザセッション') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Manage and log out your active sessions on other browsers and devices.') }}
+        {{ __('他のブラウザやデバイスでアクティブなセッションを管理してログアウトします。') }}
     </x-slot>
 
     <x-slot name="content">
         <div class="max-w-xl text-sm text-gray-600">
-            {{ __('If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password.') }}
+            {{ __('必要に応じて、すべてのデバイスで他のすべてのブラウザセッションからログアウトできます。最近のセッションの一部を以下に示します。ただし、このリストは完全ではない場合があります。アカウントが侵害されたと思われる場合は、パスワードも更新する必要があります。') }}
         </div>
 
         @if (count($this->sessions) > 0)
