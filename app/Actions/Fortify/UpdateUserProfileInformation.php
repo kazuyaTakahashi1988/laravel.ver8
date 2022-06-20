@@ -25,11 +25,26 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
-            $user->updateProfilePhoto($input['photo']);
+            // dd($input['photo']);
+            // $user->updateProfilePhoto($input['photo']);
+            $filePath = storage_path('app/public/profile-photos/'); // ストレージフォルダ取得
+            $filename = basename($input['photo']).'.jpg'; // ファイルネーム取得
+            /* ▽ リサイズ・エンコード・圧縮処理 ▽ */
+            \Image::make($input['photo'])->resize(
+                150,
+                null,
+                function ($constraint) {
+                    $constraint->aspectRatio(); // 縦横比を保持
+                    $constraint->upsize(); // 小さい画像まま
+                }
+            )->encode('jpg')->save($filePath . $filename, 70); // 圧縮比率70
+            $user->icon_img = $filename;
         }
 
-        if ($input['email'] !== $user->email &&
-            $user instanceof MustVerifyEmail) {
+        if (
+            $input['email'] !== $user->email &&
+            $user instanceof MustVerifyEmail
+        ) {
             $this->updateVerifiedUser($user, $input);
         } else {
             $user->forceFill([

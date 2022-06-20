@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="dataString mt-4 text-sm text-gray-500">
-                    <a href="/posts/user/{{ $post->user->id }}" class="icon"><img class="h-10 w-10 rounded-full object-cover" src="{{ $post->user->profile_photo_url }}" alt="{{ $post->user->name }}" /></a>
+                    <a href="/posts/user/{{ $post->user->id }}" class="icon"><img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/profile-photos/'.$post->user->icon_img) }}" alt="{{ $post->user->name }}" /></a>
                     <b>作成日：{{ $post->created_at->format('Y/m/d D H:i') }}</b><br>
                     <b class="bg">回答期限：{{ $limit->format('Y/m/d D H:i') }}</b>
                 </div>
@@ -92,7 +92,7 @@
                                     .st0 {
                                         fill: #4B4B4B;
                                     }
-                                </style>Ï
+                                </style>
                                 <g>
                                     <path class="st0" d="M500.111,71.068l-59.195-59.174c-15.859-15.849-41.531-15.862-57.386-0.014l-38.378,38.378L57.257,338.187
 		c-7.775,7.768-13.721,17.165-17.443,27.498L1.801,471.476c-3.968,11.039-1.202,23.367,7.086,31.655
@@ -108,7 +108,7 @@
                         </div>
                     </div>
                     <div class="dataString mt-4 text-sm text-gray-500">
-                        <a href="/posts/user/{{ $post->answer->comment->user->id }}" class="icon iconB"><img class="h-10 w-10 rounded-full object-cover" src="{{ $post->answer->comment->user->profile_photo_url }}" alt="{{ $post->answer->comment->user->name }}" /></a>{{ $post->answer->comment->created_at->format('Y/m/d D H:i') }}
+                        <a href="/posts/user/{{ $post->answer->comment->user->id }}" class="icon iconB"><img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/profile-photos/'.$post->answer->comment->user->icon_img) }}" alt="{{ $post->answer->comment->user->name }}" /></a>{{ $post->answer->comment->created_at->format('Y/m/d D H:i') }}
                     </div>
                 </div>
             </div>
@@ -157,7 +157,7 @@
                                     </svg>
                                     <div class="ml-4 text-l text-gray-600 leading-7 font-semibold">A：{{ $comment->comment }}</div>
 
-                                    <div class="dataString mt-4 text-sm text-gray-500"><a class="icon iconB"><img class="h-10 w-10 rounded-full object-cover" src="{{ $comment->user->profile_photo_url }}" alt="{{ $comment->user->name }}" /></a>{{ $comment->created_at->format('Y/m/d D H:i') }}</div>
+                                    <div class="dataString mt-4 text-sm text-gray-500"><a class="icon iconB"><img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/profile-photos/'.$comment->user->icon_img) }}" alt="{{ $comment->user->name }}" /></a>{{ $comment->created_at->format('Y/m/d D H:i') }}</div>
                                 </div>
 
                                 <input type="hidden" name="comment_id" value="{{ $comment->id }}">
@@ -200,7 +200,7 @@
                                 <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">A：{{ $comment->comment }}</div>
                             </div>
                         </div>
-                        <div class="dataString mt-4 text-sm text-gray-500"><a href="/posts/user/{{ $comment->user->id }}" class="icon iconB"><img class="h-10 w-10 rounded-full object-cover" src="{{ $comment->user->profile_photo_url }}" alt="{{ $comment->user->name }}" /></a>{{ $comment->created_at->format('Y/m/d D H:i') }}</div>
+                        <div class="dataString mt-4 text-sm text-gray-500"><a href="/posts/user/{{ $comment->user->id }}" class="icon iconB"><img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/profile-photos/'.$comment->user->icon_img) }}" alt="{{ $comment->user->name }}" /></a>{{ $comment->created_at->format('Y/m/d D H:i') }}</div>
                         @if (!empty($comment->reply[0]))
                         <div class="bar">&nbsp;</div>
                         <div class="replyArea">
@@ -208,7 +208,7 @@
 
                             <div class="text-gray-400 text-sm">ユーザー：<a href="/posts/user/{{ $reply->user->id }}" class="underline">{{ $reply->user->name }}</a></div>
                             <div class="mt-2 text-l text-gray-500">{{ $reply->reply }}</div>
-                            <div class="dataString mt-4 text-sm text-gray-400"><a href="/posts/user/{{ $reply->user->id }}" class="icon iconC"><img class="h-8 w-8 rounded-full object-cover" src="{{ $reply->user->profile_photo_url }}" alt="{{ $reply->user->name }}" /></a>{{ $reply->created_at->format('Y/m/d D H:i') }}</div>
+                            <div class="dataString mt-4 text-sm text-gray-400"><a href="/posts/user/{{ $reply->user->id }}" class="icon iconC"><img class="h-8 w-8 rounded-full object-cover" src="{{ asset('storage/profile-photos/'.$reply->user->icon_img) }}" alt="{{ $reply->user->name }}" /></a>{{ $reply->created_at->format('Y/m/d D H:i') }}</div>
                             @endforeach
                         </div>
                         @endif
