@@ -32,36 +32,42 @@
                             <!-- form - start -->
                             <form class="max-w-screen-md grid sm:grid-cols-2 gap-4 mx-auto" action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
                                 {{ csrf_field() }}
-                                <div>
-                                    <label for="title" class="inline-block text-gray-800 text-sm sm:text-base mb-2"><b>タイトル</b></label>
-                                    <input name="title" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" value="{{ old('title' , '') }}" />
-                                </div>
+                                <div class="wClm">
+                                    <div class="sideLeft">
+                                        <div>
+                                            <label for="title" class="inline-block text-gray-800 text-sm sm:text-base mb-2"><b>タイトル</b></label>
+                                            <input name="title" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" value="{{ old('title' , '') }}" />
+                                        </div>
 
-                                <div>
-                                    <label for="title" class="inline-block text-gray-800 text-sm sm:text-base"><b>サムネイル画像</b></label>
-                                    <div id="drag-drop-area" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2">
-                                        <div class="drag-drop-inside">
-                                            <p class="drag-drop-info">ここにファイルをドロップ</p>
-                                            <p>または</p>
-                                            <p class="drag-drop-buttons"><input id="fileInput" type="file" value="ファイルを選択" name="image"></p>
+                                        <div class="form-group mt-4">
+                                            <label for="category_id" class="inline-block text-gray-800 text-sm sm:text-base mb-2"><b>カテゴリー</b></label>
+                                            <select id="exampleFormControlSelect1" name="category_id" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2">
+                                                <option selected="">---</option>
+                                                @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}" @if( old('category_id')==$category->id ) selected @endif>{{ $category->category_name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="sm:col-span-2 mt-4">
+                                            <label for="content" class="inline-block text-gray-800 text-sm sm:text-base mb-2"><b>内容</b></label>
+                                            <textarea name="content" id="ckeditor" class="content w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-3">{{ old('content' , '') }}</textarea>
                                         </div>
                                     </div>
-                                </div>
+                                    <div class="sideRight">
+                                        <div>
+                                            <label for="title" class="inline-block text-gray-800 text-sm sm:text-base"><b>サムネイル画像</b></label>
+                                            <div id="drag-drop-area" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2">
+                                                <div class="drag-drop-inside">
+                                                    <p class="drag-drop-info">ここにファイルをドロップ</p>
+                                                    <p>または</p>
+                                                    <p class="drag-drop-buttons"><input id="fileInput" type="file" value="ファイルを選択" name="image"></p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <div class="form-group">
-                                    <label for="category_id" class="inline-block text-gray-800 text-sm sm:text-base mb-2"><b>カテゴリー</b></label>
-                                    <select id="exampleFormControlSelect1" name="category_id" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2">
-                                        <option selected="">---</option>
-                                        @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}"
-                                        @if( old('category_id') == $category->id ) selected @endif>{{ $category->category_name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                    </div>
 
-                                <div class="sm:col-span-2">
-                                    <label for="content" class="inline-block text-gray-800 text-sm sm:text-base mb-2"><b>内容</b></label>
-                                    <textarea name="content" id="ckeditor" class="content w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-3">{{ old('content' , '') }}</textarea>
                                 </div>
 
                                 <div class="m-3 mt-4">

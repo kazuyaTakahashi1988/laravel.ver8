@@ -35,7 +35,7 @@
 
                                 <div class="sm:col-span-2">
                                     <label for="comment" class="inline-block text-gray-800 text-sm sm:text-base mb-2"><b>コメント内容</b></label>
-                                    <textarea name="comment" class="w-full h-250 bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3"></textarea>
+                                    <textarea name="comment" id="ckeditor" class="content w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-3">{{ old('content' , '') }}</textarea>
                                 </div>
                                 <input name="post_id" type="hidden" value="{{ $post_id }}" />
                                 <div class="m-3">
@@ -50,5 +50,41 @@
             </div>
         </div>
     </div>
+    <?php /* --------------------------------------------------
+        ▽ CKeditor 読み込み ▽
+    ----------------------------------------------------------- */ ?>
+    <script src="{{ asset('ckeditor/ckeditor.js')}}"></script>
+    <script>
+        CKEDITOR.replace('ckeditor', {
+            filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token() ]) }}",
+            filebrowserUploadMethod: 'form',
+            // スペルチェック機能OFF
+            scayt_autoStartup: false,
+            // Enterを押した際に改行タグを挿入
+            enterMode: CKEDITOR.ENTER_BR,
+            // Shift+Enterを押した際に段落タグを挿入
+            shiftEnterMode: CKEDITOR.ENTER_P,
+            // idやclassを指定可能にする
+            allowedContent: true,
+            // preコード挿入時
+            format_pre: {
+                element: "pre",
+                attributes: {
+                    class: "code",
+                },
+            },
+            // タグのパンくずリストを削除
+            removePlugins: "elementspath",
 
+            // webからコピペした際でもプレーンテキストを貼り付けるようにする
+            forcePasteAsPlainText: true,
+
+            // 自動で空白を挿入しないようにする
+            fillEmptyBlocks: false,
+
+            // タブの入力を無効にする
+            tabSpaces: 0,
+
+        });
+    </script>
 </x-app-layout>

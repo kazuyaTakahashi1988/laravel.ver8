@@ -57,7 +57,7 @@
 		c4.758-4.74,12.463-4.747,17.245,0.014l59.199,59.174C484.796,95.884,484.806,103.575,480.031,108.385z" style="fill: rgb(75, 75, 75);"></path>
                                                 </g>
                                             </svg>
-                                            <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">A：{{ $comment }}</div>
+                                            <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold comment01">A：{!! $comment !!}</div>
                                         </div>
                                         <input type="hidden" name="comment_id" value="{{ $comment_id }}">
                                         <input type="hidden" name="post_id" value="{{ $post_id }}">
