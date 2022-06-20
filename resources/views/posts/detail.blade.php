@@ -15,7 +15,6 @@
         @else
         <meta property="og:image" content="<?php echo $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST']; ?>/ogp.jpg">
         @endif
-        <meta property="og:image" content="">
         <meta property="og:locale" content="ja_JP">
         <meta property="fb:admins" content="xxxxxxxxx">
         <meta property="og:type" content="article">
