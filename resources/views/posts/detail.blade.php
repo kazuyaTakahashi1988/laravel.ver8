@@ -54,7 +54,7 @@
                                     <?php /* ?><span class="likeCount">{{ $defaultCount }}</span><?php */ ?>
                                 </div>
                                 @else
-                                <div class="mt-2 text-sm text-gray-500">Like：{{ $defaultCount }}</div>
+                                <div class="mt-2 text-sm text-indigo-700"><b>Like：{{ $defaultCount }}</b></div>
                                 @endauth
                             </div>
                             <div class="mt-8 text-l text-gray-500 postContents">
