@@ -2755,8 +2755,8 @@ select {
 }
 
 #likeBtnArea button {
-  font-size: 1rem;
-  padding: 5px 10px;
+  font-size: 0.8rem;
+  padding: 2px 5px;
 }
 
 .likeBtn button {
