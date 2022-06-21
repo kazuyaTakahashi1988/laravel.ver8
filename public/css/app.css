@@ -2915,7 +2915,7 @@ body {
   height: auto!important;
 }
 #cke_1_contents{
-  height: 350px!important;
+  min-height: 350px!important;
 }
 
 #drag-drop-area{
