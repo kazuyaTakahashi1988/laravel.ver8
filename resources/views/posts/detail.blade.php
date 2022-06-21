@@ -114,7 +114,7 @@
                             <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold comment01">A：{!! $post->answer->comment->comment !!}</div>
                         </div>
                     </div>
-                    <div class="dataString text-sm text-gray-600">
+                    <div class="dataString mt-2 text-sm text-gray-600">
                         <a href="/posts/user/{{ $post->answer->comment->user->id }}" class="icon iconB">
                             @if(isset($post->answer->comment->user->icon_img))
                             <img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/profile-photos/'.$post->answer->comment->user->icon_img) }}" alt="{{ $post->answer->comment->user->name }}" />
@@ -170,7 +170,7 @@
                                     </svg>
                                     <div class="ml-4 text-l text-gray-600 leading-7 font-semibold comment01">A：{!! $comment->comment !!}</div>
 
-                                    <div class="dataString text-sm text-gray-600"><a class="icon iconB">
+                                    <div class="dataString mt-2 text-sm text-gray-600"><a class="icon iconB">
                                             @if(isset($comment->user->icon_img))
                                             <img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/profile-photos/'.$comment->user->icon_img) }}" alt="{{ $comment->user->name }}" />
                                             @else
@@ -219,7 +219,7 @@
                                 <div class="ml-4 text-l text-gray-600 leading-7 comment01"><span class="text-lg">A：</span>{!! $comment->comment !!}</div>
                             </div>
                         </div>
-                        <div class="dataString text-sm text-gray-600"><a href="/posts/user/{{ $comment->user->id }}" class="icon iconB">
+                        <div class="dataString mt-2 text-sm text-gray-600"><a href="/posts/user/{{ $comment->user->id }}" class="icon iconB">
                                 @if(isset($comment->user->icon_img))
                                 <img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/profile-photos/'.$comment->user->icon_img) }}" alt="{{ $comment->user->name }}" />
                                 @else
