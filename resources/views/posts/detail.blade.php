@@ -195,7 +195,7 @@
                 <h2 class="text-l leading-tight text-lg text-gray-600 leading-7 font-semibold">回答コメント</h2>
                 <div class="text-sm text-gray-600">
                     @foreach($comments as $comment)
-                    <div class="p-6 mt-8 overflow-hidden shadow-xl shadow-xls posiR">
+                    <div class="p-6 mt-4 overflow-hidden shadow-xl shadow-xls posiR">
                         <div class="gap-2">
                             <div class="text-gray-400 text-sm">ユーザー：<a href="/posts/user/{{ $comment->user->id }}" class="underline">{{ $comment->user->name }}</a></div>
                             <div class="flex-items items-center mt-2">
