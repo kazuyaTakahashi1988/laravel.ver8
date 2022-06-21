@@ -216,7 +216,7 @@
 		c4.758-4.74,12.463-4.747,17.245,0.014l59.199,59.174C484.796,95.884,484.806,103.575,480.031,108.385z" style="fill: rgb(75, 75, 75);"></path>
                                         </g>
                                     </svg></a>
-                                <div class="ml-4 text-l text-gray-600 leading-7 font-semibold comment01">A：{!! $comment->comment !!}</div>
+                                <div class="ml-4 text-l text-gray-600 leading-7 font-semibold comment01"><span class="text-lg">A：</span>{!! $comment->comment !!}</div>
                             </div>
                         </div>
                         <div class="dataString mt-4 text-sm text-gray-500"><a href="/posts/user/{{ $comment->user->id }}" class="icon iconB">
