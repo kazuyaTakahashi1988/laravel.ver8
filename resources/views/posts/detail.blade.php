@@ -39,7 +39,7 @@
 
                         </div>
                         <div class="ml-12">
-                            <div class="mt-2 text-sm text-gray-500">
+                            <div class="mt-2 text-sm text-gray-600">
                                 ユーザー：<a href="/posts/user/{{ $post->user->id }}" class="underline">{{ $post->user->name }}</a><br>
                                 カテゴリー：<a href="/posts/category/{{ $post->category->id }}" class="underline">{{ $post->category->category_name }}</a><br>
 
@@ -57,7 +57,7 @@
                                 <div class="mt-2 text-sm text-indigo-700"><b>Like：{{ $defaultCount }}</b></div>
                                 @endauth
                             </div>
-                            <div class="mt-8 text-l text-gray-500 postContents">
+                            <div class="mt-8 text-l text-gray-600 postContents">
                                 {!! $post->content !!}
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                     @endif
                 </div>
 
-                <div class="dataString mt-4 text-sm text-gray-500">
+                <div class="dataString mt-4 text-sm text-gray-600">
                     <a href="/posts/user/{{ $post->user->id }}" class="icon">
                         @if(isset($post->user->icon_img))
                         <img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/profile-photos/'.$post->user->icon_img) }}" alt="{{ $post->user->name }}" />
@@ -114,7 +114,7 @@
                             <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold comment01">A：{!! $post->answer->comment->comment !!}</div>
                         </div>
                     </div>
-                    <div class="dataString mt-4 text-sm text-gray-500">
+                    <div class="dataString mt-4 text-sm text-gray-600">
                         <a href="/posts/user/{{ $post->answer->comment->user->id }}" class="icon iconB">
                             @if(isset($post->answer->comment->user->icon_img))
                             <img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/profile-photos/'.$post->answer->comment->user->icon_img) }}" alt="{{ $post->answer->comment->user->name }}" />
@@ -132,7 +132,7 @@
             @if( isset($userAuth->id) && $userAuth->id == $post->user_id && !isset($post->answer->id) && $timeG == true )
             <div class="p-6 mt-8 border-white bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <h2 class="text-l leading-tight text-lg text-gray-600 leading-7 font-semibold">ベストアンサーを選出してください！！！</h2>
-                <div class="text-sm text-gray-500">
+                <div class="text-sm text-gray-600">
                     @foreach($comments as $comment)
                     <div class="overflow-hidden shadow-xl py-6">
                         <div class="gap-2">
@@ -170,7 +170,7 @@
                                     </svg>
                                     <div class="ml-4 text-l text-gray-600 leading-7 font-semibold comment01">A：{!! $comment->comment !!}</div>
 
-                                    <div class="dataString mt-4 text-sm text-gray-500"><a class="icon iconB">
+                                    <div class="dataString mt-4 text-sm text-gray-600"><a class="icon iconB">
                                             @if(isset($comment->user->icon_img))
                                             <img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/profile-photos/'.$comment->user->icon_img) }}" alt="{{ $comment->user->name }}" />
                                             @else
@@ -193,7 +193,7 @@
             @else
             <div class="p-6 mt-8 border-white bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <h2 class="text-l leading-tight text-lg text-gray-600 leading-7 font-semibold">回答コメント</h2>
-                <div class="text-sm text-gray-500">
+                <div class="text-sm text-gray-600">
                     @foreach($comments as $comment)
                     <div class="p-6 mt-8 overflow-hidden shadow-xl shadow-xls posiR">
                         <div class="gap-2">
@@ -219,7 +219,7 @@
                                 <div class="ml-4 text-l text-gray-600 leading-7 comment01"><span class="text-lg">A：</span>{!! $comment->comment !!}</div>
                             </div>
                         </div>
-                        <div class="dataString mt-4 text-sm text-gray-500"><a href="/posts/user/{{ $comment->user->id }}" class="icon iconB">
+                        <div class="dataString mt-4 text-sm text-gray-600"><a href="/posts/user/{{ $comment->user->id }}" class="icon iconB">
                                 @if(isset($comment->user->icon_img))
                                 <img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/profile-photos/'.$comment->user->icon_img) }}" alt="{{ $comment->user->name }}" />
                                 @else
@@ -233,7 +233,7 @@
                             @foreach($comment->reply as $reply)
 
                             <div class="text-gray-400 text-sm">ユーザー：<a href="/posts/user/{{ $reply->user->id }}" class="underline">{{ $reply->user->name }}</a></div>
-                            <div class="mt-2 text-l text-gray-500">{{ $reply->reply }}</div>
+                            <div class="mt-2 text-l text-gray-600">{{ $reply->reply }}</div>
                             <div class="dataString mt-4 text-sm text-gray-400"><a href="/posts/user/{{ $reply->user->id }}" class="icon iconC">
                                     @if(isset($reply->user->icon_img))
                                     <img class="h-8 w-8 rounded-full object-cover" src="{{ asset('storage/profile-photos/'.$reply->user->icon_img) }}" alt="{{ $reply->user->name }}" />

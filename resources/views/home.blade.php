@@ -47,11 +47,11 @@
                     </div>
 
                     <div class="ml-12">
-                        <div class="mt-2 text-sm text-gray-500">
+                        <div class="mt-2 text-sm text-gray-600">
                             ユーザー：{{ $post->user->name }}<br>
                             カテゴリー：{{ $post->category->category_name }}<br>
                         </div>
-                        <div class="qContext mt-2 text-sm text-gray-500">
+                        <div class="qContext mt-2 text-sm text-gray-600">
                             {{ strip_tags($post->content) }}
                         </div>
 
