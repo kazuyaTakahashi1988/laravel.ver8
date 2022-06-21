@@ -2738,6 +2738,7 @@ select {
 
 #likeBtnArea .likeBtn {
   display: block;
+  color: red;
 }
 
 #likeBtnArea .unlikeBtn {
@@ -2760,14 +2761,14 @@ select {
 
 .likeBtn button {
   background: #fff;
-  color: #6b7280;
+  color: rgb(67 56 202);
   border: 3px solid yellow;
   box-sizing: border-box;
 }
 
 .unlikeBtn button {
   background: yellow;
-  color: #6b7280;
+  color: rgb(67 56 202);
   border: 3px solid yellow;
 }
 

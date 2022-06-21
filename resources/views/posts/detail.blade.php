@@ -46,7 +46,7 @@
                                 @auth
                                 <div id="likeBtnArea" class="@if($defaultLiked) active @endif">
                                     <div class="likeBtn">
-                                        <button type="button" class="shadow-lg font-semibold rounded " onClick="like({{ $post->id }})">Like　<span class="likeCount">{{ $defaultCount }}</span></button>
+                                        <button type="button" class="shadow-lg font-semibold rounded" onClick="like({{ $post->id }})">Like　<span class="likeCount">{{ $defaultCount }}</span></button>
                                     </div>
                                     <div class="unlikeBtn">
                                         <button type="button" class="shadow-lg font-semibold rounded " onClick="unlike({{ $post->id }})">Like　<span class="likeCount">{{ $defaultCount }}</span></button>
