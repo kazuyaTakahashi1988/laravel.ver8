@@ -234,7 +234,7 @@
 
                             <div class="text-gray-400 text-sm">ユーザー：<a href="/posts/user/{{ $reply->user->id }}" class="underline">{{ $reply->user->name }}</a></div>
                             <div class="mt-2 text-l text-gray-600">{{ $reply->reply }}</div>
-                            <div class="dataString mt-4 text-sm text-gray-400"><a href="/posts/user/{{ $reply->user->id }}" class="icon iconC">
+                            <div class="dataString mt-2 text-sm text-gray-400"><a href="/posts/user/{{ $reply->user->id }}" class="icon iconC">
                                     @if(isset($reply->user->icon_img))
                                     <img class="h-8 w-8 rounded-full object-cover" src="{{ asset('storage/profile-photos/'.$reply->user->icon_img) }}" alt="{{ $reply->user->name }}" />
                                     @else
