@@ -23,7 +23,7 @@
                         {{ __('お気に入り 一覧') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
-                        {{ __('投稿はこちら') }}
+                        {{ __('投稿する') }}
                     </x-jet-nav-link>
                 </div>
             </div>
