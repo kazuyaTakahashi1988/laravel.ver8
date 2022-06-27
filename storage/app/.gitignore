@@ -1,6 +1,6 @@
-*
-!public/image/
-!public/uploads/
-!public/profile-photos/
+!public/image/*
+!public/uploads/*
+!public/profile-photos/*
+livewire-tmp/*
 !.gitignore
 !.DS_store
