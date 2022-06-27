@@ -1,4 +1,6 @@
 *
-!public/
+!public/image/
+!public/uploads/
+!public/profile-photos/
 !.gitignore
 !.DS_store
