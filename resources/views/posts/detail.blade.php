@@ -111,7 +111,7 @@
 		c4.758-4.74,12.463-4.747,17.245,0.014l59.199,59.174C484.796,95.884,484.806,103.575,480.031,108.385z" style="fill: rgb(75, 75, 75);"></path>
                                 </g>
                             </svg>
-                            <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold comment01">A：{!! $post->answer->comment->comment !!}</div>
+                            <div class="ml-4 text-l text-gray-600 leading-7 comment01">A：{!! $post->answer->comment->comment !!}</div>
                         </div>
                     </div>
                     <div class="dataString mt-2 text-sm text-gray-600">
